@@ -1,14 +1,45 @@
 
-public class MovableCircle implements Movable { 
-  private MovablePoint center;
-  private int radius;
-  
-  // TASK: Add the constructor here
-  
-  // TASK: Implement all abstract methods declared in the interface
-  @Override
-  public void moveUp() {
-	 center.moveUp();// move the center up
-  }
+public class MovableCircle implements Shape, Movable {
+    private MovablePoint center;
+    private int radius;
 
+    public MovableCircle(int x, int y, int xSpeed, int ySpeed, int radius) {
+        this.center = new MovablePoint(x, y, xSpeed, ySpeed);
+        this.radius = radius;
+    }
+
+    @Override
+    public double area() {
+        return Math.PI*(radius*radius);
+    }
+
+    @Override
+    public double perimeter() {
+        return Math.PI * (radius*2);
+    }
+
+    @Override
+    public void moveUp() {
+        center.moveUp();
+    }
+
+    @Override
+    public void moveDown() {
+        center.moveDown();
+    }
+
+    @Override
+    public void moveLeft() {
+        center.moveLeft();
+    }
+
+    @Override
+    public void moveRight() {
+        center.moveRight();
+    }
+
+    @Override
+    public String toString() {
+        return "MovableCircle[center=" + center.toString() + ",radius=" + radius + "]";
+    }
 }
